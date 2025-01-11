@@ -29,4 +29,10 @@ class CarTest {
         assertThrows(IllegalArgumentException.class, () -> new Car(name));
     }
 
+    @Test
+    void 자동차는_4이상의_수를_받을_때_전진한다() {
+        int randomNumber = 4;
+        Car car = new Car("test");
+        assertEquals(car.move(randomNumber), 1);
+    }
 }

@@ -18,14 +18,14 @@ class CarTest {
     }
 
     @Test
-    void 자동차의_이름은_5자_이하() {
+    void 자동차의_이름은_5자_초과면_예외를_던진다() {
         String name = "kangrae";
         assertThrows(IllegalArgumentException.class, () -> new Car(name));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {" ", "\0", ""})
-    void 자동차의_이름은_존재해야한다(String name) {
+    void 자동차의_이름이_없는_경우_예외를_던진다(String name) {
         assertThrows(IllegalArgumentException.class, () -> new Car(name));
     }
 

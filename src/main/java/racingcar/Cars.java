@@ -27,4 +27,15 @@ public class Cars {
                 .toList());
     }
 
+    public List<String> getState() {
+        List<String> state = new ArrayList<>();
+        cars.forEach(car -> state.add(car.toString() + " : " + "-".repeat(car.getPosition())));
+        return state;
+    }
+
+    @Override
+    public String toString() {
+        String regex = "\\[|\\]";
+        return cars.toString().replaceAll(regex, "");
+    }
 }

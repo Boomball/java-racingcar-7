@@ -22,6 +22,7 @@ public class Application {
             cars.move();
             outputView.showRound(cars);
         }
+
         outputView.showWinners(cars.getMaxPosition());
     }
 }

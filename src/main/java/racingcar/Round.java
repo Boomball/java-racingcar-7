@@ -1,31 +1,28 @@
 package racingcar;
 
-import java.util.List;
+public class Round {
 
-public class Race {
+    private static final int MAX_ROUND = 100_000;
+    private static final int MIN_ROUND = 0;
 
-    private final Cars cars;
     private int round;
 
-    public Race(List<String> names, int round) {
+    public Round(int round) {
         validate(round);
-
-        List<Car> cars = names.stream().map(Car::new).toList();
-        this.cars = new Cars(cars);
         this.round = round;
     }
 
-    public int playRound() {
-        cars.move();
+    public int play() {
         return --round;
     }
 
     private void validate(int round) {
-        if (round <= 0) {
+        if (round <= MIN_ROUND) {
             throw new IllegalArgumentException("라운드는 0보다 작을 수 없습니다.");
         }
-        if (round == Integer.MAX_VALUE) {
+        if (round > MAX_ROUND) {
             throw new IllegalArgumentException("라운드는 MAX_VALUE보다 클 수 없습니다.");
         }
     }
+
 }
